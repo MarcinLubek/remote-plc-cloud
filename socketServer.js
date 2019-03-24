@@ -3,13 +3,13 @@ var io = require('socket.io')();
 io.on('connection', (client) => {
     console.log('connected');
     client.on('up', () => {
-        console.log('going up!')
+	io.sockets.emit('up');
     })
     client.on('down', () => {
-        console.log('going down!')
+	io.sockets.emit('down');
     })
     client.on('stop', () => {
-        console.log('stop!')
+	io.sockets.emit('stop');
     })
 });
 

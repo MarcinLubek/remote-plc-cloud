@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import openSocket from 'socket.io-client';
-const socket = openSocket('localhost:3001');
+const socket = openSocket('http://vps652091.ovh.net:3001/');
 
 class App extends Component {
 	constructor(props) {
