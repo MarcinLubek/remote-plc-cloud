@@ -31,12 +31,15 @@ class Register extends Component {
     }
 
     registerUser(e) {
+        this.props.loading()
         e.preventDefault()
         if (this.validateData()) {
             fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
                 console.log('regiter user', user)
             }).catch(function (error) {
                 console.log('register error', error)
+            }).finally(() => {
+                // this.props.loadingStop();
             });
         }
     }
@@ -49,8 +52,8 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <form id="registrationForm">
+            <div className="container">
+                <form id="registrationForm" className="container">
                     <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
                     <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                     <input name="retypedPassword" type="password" placeholder="Retype Password" value={this.state.retypedPassword} onChange={this.handleChange} />

@@ -47,19 +47,23 @@ class Settings extends Component {
         } else if (this.state.newPassword !== this.state.newPasswordRetyped) {
             alert('Passwords does not match')
         } else {
+            this.props.loading()
             let self = this
             let user = fire.auth().currentUser
             user.updatePassword(this.state.newPassword).then(function () {
                 alert('Password changed!')
+                self.props.loadingStop()
                 self.backToSettings()
             }).catch(function (error) {
                 alert(error.message)
+                self.props.loadingStop()
             });
         }
     }
 
     deleteAccount() {
-        let user = fire.auth().currentUser;
+        this.props.loading()
+        let user = fire.auth().currentUser
         user.delete().then(function () {
             alert('User deleted')
         }).catch(function (error) {
@@ -76,16 +80,21 @@ class Settings extends Component {
         switch (this.state.mode) {
             default:
                 return (
-                    <div>
-                        <Menu navigateToSettings={this.backToSettings} />
+                    <div className="container">
+                        <div className="bufferContainer">
+                            <div id="menuContainerId" className="menuContainer">
+                                <Menu
+                                    navigateToSettings={this.props.navigateToSettings}
+                                    navigateToDashboard={this.props.navigateToDashboard} />
+                            </div>
+                        </div>
                         <button onClick={this.changePasswordMode}>Change Password</button>
                         <button onClick={this.deleteAccountMode}> Delete account</button>
-                        <button onClick={this.backToSettings}>Back</button>
                     </div >
                 )
             case 'changePassword':
                 return (
-                    <div>
+                    <div className="container">
                         <input name="newPassword" type="password" placeholder="New password" value={this.state.newPassword} onChange={this.handleChange} />
                         <input name="newPasswordRetyped" type="password" placeholder="Retype new password" value={this.state.newPasswordRetyped} onChange={this.handleChange} />
                         <button onClick={this.changePassword}>Change Password</button>
@@ -94,8 +103,8 @@ class Settings extends Component {
                 )
             case 'deleteAccount':
                 return (
-                    <div>
-                        <span>Are you sure?</span>
+                    <div className="container">
+                        <div>Are you sure?</div>
                         <button onClick={this.deleteAccount}>Delete account</button>
                         <button onClick={this.backToSettings}>Back</button>
                     </div >

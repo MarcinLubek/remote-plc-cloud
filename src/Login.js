@@ -15,21 +15,27 @@ class Login extends Component {
     }
 
     logIn(e) {
+        this.props.loading();
         e.preventDefault()
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
 
         }).catch(function (error) {
             alert(error.message);
+        }).finally(() => {
+            this.props.loadingStop();
         });
     }
 
     resetPassword() {
         if (this.state.email) {
+            this.props.loading();
             fire.auth().sendPasswordResetEmail(this.state.email).then(function () {
                 alert('Link to reset your password was sent. Please check your email to finish resetting your password')
             }).catch(function (error) {
                 alert(error.message)
-            })
+            }).finally(() => {
+                this.props.loadingStop();
+            });
         } else {
             alert('Please provide your Email address. Link to reset your password will be sent to it.')
         }
@@ -43,14 +49,26 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <input name="email" type="email" placeholder="Email" onChange={this.handleChange} value={this.state.email} />
-                    <input name="password" type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} />
+            <div className="container">
+                <form className="container">
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        className="credentialInput"
+                        onChange={this.handleChange}
+                        value={this.state.email} />
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        className="credentialInput"
+                        onChange={this.handleChange}
+                        value={this.state.password} />
                     <button onClick={this.logIn}>Log In</button>
                 </form>
-                <button onClick={this.resetPassword}>Reset Password</button>
                 <button onClick={this.props.navigateToRegistration}>Sign Up</button>
+                <button onClick={this.resetPassword}>Reset Password</button>
             </div >
         )
     }
