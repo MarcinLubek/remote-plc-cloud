@@ -3,8 +3,8 @@ import Menu from './Menu'
 import ConnectionStatus from './ConnectionStatus'
 import 'material-design-icons/iconfont/material-icons.css'
 
-// import openSocket from 'socket.io-client';
-// const socket = openSocket('http://vps652091.ovh.net:3001/');
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:3001/');
 
 class Dashboard extends Component {
 
@@ -42,7 +42,7 @@ class Dashboard extends Component {
 
     up(event) {
         console.log(event.target.parentNode.parentNode.id, ' is going up!')
-        // socket.emit('up');
+        socket.emit('up');
     }
 
     down(event) {
