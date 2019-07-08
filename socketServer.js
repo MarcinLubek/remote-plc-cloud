@@ -1,7 +1,17 @@
+//
+// Local
+//
+
 var ioLocal = require('socket.io')();
+var isLocalConnected = false;
 
 ioLocal.on('connection', (client) => {
     console.log('local connected');
+    isLocalConnected = true;
+    client.on('disconnect', () => {
+        isLocalConnected = false;
+        console.log('local disconnected');
+    })
     // client.on('up', () => {
     //     console.log('socketServer ioLocal up');
     //     // ioCloud.sockets.emit('up');
@@ -18,11 +28,14 @@ ioLocal.on('connection', (client) => {
     //     // console.log('socketServer stop!');
     // })
 });
-
 const portLocal = 3001;
 
 ioLocal.listen(portLocal);
 console.log('local listening on port', portLocal);
+
+//
+// Cloud
+//
 
 var ioCloud = require('socket.io')();
 
@@ -41,10 +54,14 @@ ioCloud.on('connection', (client) => {
         console.log('cloud emits stop!');
     })
 });
-
 const portCloud = 3002;
 
-ioCloud.listen(portCloud);
-console.log('cloud listening on port', portCloud);
+if (isLocalConnected) {
+    ioCloud.listen(portCloud);
+    console.log('cloud listening on port', portCloud);
+} else {
+    console.log('local is not connected');
+}
+
 
 
