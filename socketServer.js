@@ -1,5 +1,30 @@
-var ioCloud = require('socket.io')();
 var ioLocal = require('socket.io')();
+
+ioLocal.on('connection', (client) => {
+    console.log('local connected');
+    // client.on('up', () => {
+    //     console.log('socketServer ioLocal up');
+    //     // ioCloud.sockets.emit('up');
+    //     // console.log('socketServer up!');
+    // })
+    // client.on('down', () => {
+    //     console.log('socketServer ioLocal down');
+    //     // ioCloud.sockets.emit('down');
+    //     // console.log('socketServer down!');
+    // })
+    // client.on('stop', () => {
+    //     console.log('socketServer ioLocal stop');
+    //     // ioCloud.sockets.emit('stop');
+    //     // console.log('socketServer stop!');
+    // })
+});
+
+const portLocal = 3001;
+
+ioLocal.listen(portLocal);
+console.log('local listening on port', portLocal);
+
+var ioCloud = require('socket.io')();
 
 ioCloud.on('connection', (client) => {
     console.log('cloud connected');
@@ -17,29 +42,9 @@ ioCloud.on('connection', (client) => {
     })
 });
 
-// ioLocal.on('connection', (client) => {
-//     client.on('up', () => {
-//         console.log('socketServer ioLocal up');
-//         // ioCloud.sockets.emit('up');
-//         // console.log('socketServer up!');
-//     })
-//     client.on('down', () => {
-//         console.log('socketServer ioLocal down');
-//         // ioCloud.sockets.emit('down');
-//         // console.log('socketServer down!');
-//     })
-//     client.on('stop', () => {
-//         console.log('socketServer ioLocal stop');
-//         // ioCloud.sockets.emit('stop');
-//         // console.log('socketServer stop!');
-//     })
-// });
-
-const portCloud = 3001;
-const portLocal = 3002;
+const portCloud = 3002;
 
 ioCloud.listen(portCloud);
 console.log('cloud listening on port', portCloud);
 
-ioLocal.listen(portLocal);
-console.log('local listening on port', portLocal);
+
