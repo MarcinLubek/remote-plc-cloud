@@ -56,12 +56,12 @@ ioCloud.on('connection', (client) => {
 });
 const portCloud = 3002;
 
-if (isLocalConnected) {
-    ioCloud.listen(portCloud);
-    console.log('cloud listening on port', portCloud);
-} else {
-    console.log('local is not connected');
-}
+// if (isLocalConnected) {
+ioCloud.listen(portCloud);
+console.log('cloud listening on port', portCloud);
+// } else {
+    // console.log('local is not connected');
+// }
 
 
 
