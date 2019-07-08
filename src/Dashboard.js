@@ -20,7 +20,7 @@ class Dashboard extends Component {
 
     connect() {
         this.props.loading();
-        let socket = openSocket('http://localhost:3001/');
+        let socket = openSocket('http://vps699582.ovh.net:3001');
         this.setState({
             connected: true,
             socket: socket
