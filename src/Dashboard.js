@@ -20,12 +20,15 @@ class Dashboard extends Component {
 
     connect() {
         this.props.loading();
-        let socket = openSocket('http://vps699582.ovh.net:3002');
-        debugger;
-        this.setState({
-            connected: true,
-            socket: socket
-        });
+        try {
+            let socket = openSocket('http://vps699582.ovh.net:3002');
+            this.setState({
+                connected: true,
+                socket: socket
+            });
+        } catch{
+            alert('Connection can not be esablished');
+        }
         this.props.loadingStop();
     }
 
