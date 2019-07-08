@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import fire from './Config/Firebase'
+import React, { Component } from 'react';
+import fire from './Config/Firebase';
 
 class Register extends Component {
 
@@ -10,20 +10,20 @@ class Register extends Component {
             password: '',
             retypedPassword: ''
         }
-        this.validateData = this.validateData.bind(this)
-        this.registerUser = this.registerUser.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.validateData = this.validateData.bind(this);
+        this.registerUser = this.registerUser.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     validateData() {
         if (!this.state.email) {
-            alert('Email field cannot be empty')
+            alert('Email field cannot be empty');
         } else if (!this.state.password) {
-            alert('Password field can not be empty')
+            alert('Password field can not be empty');
         } else if (!this.state.retypedPassword) {
-            alert('Retyped password field can not be empty')
+            alert('Retyped password field can not be empty');
         } else if (this.state.password !== this.state.retypedPassword) {
-            alert('Passwords do not match')
+            alert('Passwords do not match');
         } else {
             return true
         }
@@ -31,13 +31,13 @@ class Register extends Component {
     }
 
     registerUser(e) {
-        this.props.loading()
-        e.preventDefault()
+        this.props.loading();
+        e.preventDefault();
         if (this.validateData()) {
             fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-                console.log('regiter user', user)
+                console.log('regiter user', user);
             }).catch(function (error) {
-                console.log('register error', error)
+                console.log('register error', error);
             }).finally(() => {
                 // this.props.loadingStop();
             });
@@ -47,7 +47,7 @@ class Register extends Component {
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        });
     }
 
     render() {
@@ -61,8 +61,8 @@ class Register extends Component {
                 </form>
                 <button onClick={this.props.navigateToLogIn}>Back to Log in page</button>
             </div >
-        )
+        );
     }
 }
 
-export default Register
+export default Register;

@@ -8,9 +8,11 @@ io.on('connection', (client) => {
     })
     client.on('down', () => {
         io.sockets.emit('down');
+        console.log('socketServer down!');
     })
     client.on('stop', () => {
         io.sockets.emit('stop');
+        console.log('socketServer stop!');
     })
 });
 

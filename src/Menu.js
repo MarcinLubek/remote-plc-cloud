@@ -1,14 +1,10 @@
-import React from 'react'
-import fire from './Config/Firebase'
+import React from 'react';
+import fire from './Config/Firebase';
 
 function Menu(props) {
 
     function logOut() {
-        fire.auth().signOut().then(() => {
-            // console.log('logged out!')
-        }).catch((error) => {
-            // console.log('log out error', error)
-        })
+        fire.auth().signOut().then(() => { }).catch((error) => { });
     }
 
     function toggleMenu(e) {
@@ -34,7 +30,7 @@ function Menu(props) {
                 </ul>
             </div>
         </nav>
-    )
+    );
 }
 
-export default Menu
+export default Menu;

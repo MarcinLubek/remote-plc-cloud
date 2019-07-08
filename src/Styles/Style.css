@@ -3,13 +3,13 @@
     color: #333;
 }
 
-.led {
+.led{
     border-radius: 10px;
     width: 20px;
     height: 20px;
     margin-right: 10px;
 }
-    .led:after {
+    .led:after{
         display: block;            
         content: '';
         margin-left: 2px;
@@ -22,10 +22,10 @@
         -webkit-border-bottom-left-radius: 8px 6px;
         background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
     }
-    .green {
+    .green{
         background-image: -webkit-linear-gradient(top, #13fB04 0%, #58e343 50%, #ADED99 100%);
     }
-    .red {
+    .red{
         background-image: -webkit-linear-gradient(top, #fb1304 0%, #e35843 50%, #edad99 100%);
     }
 

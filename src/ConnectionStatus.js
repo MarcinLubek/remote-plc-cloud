@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 function ConnectionStatus(props) {
 
     function toggleConnection(e) {
         if (props.connectionState) {
-            props.disconnect()
+            props.disconnect();
         } else {
-            props.connect()
+            props.connect();
         }
     }
 
@@ -16,15 +16,15 @@ function ConnectionStatus(props) {
                 <div className="led green"></div>
                 <div>Connected</div>
             </div >
-        )
+        );
     } else {
         return (
             <div className="connectionStatus" onClick={toggleConnection}>
                 <div className="led red"></div>
                 <div>Connect</div>
             </div >
-        )
+        );
     }
 }
 
-export default ConnectionStatus
+export default ConnectionStatus;

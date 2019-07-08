@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Login from './Login'
-import fire from './Config/Firebase'
-import Register from './Register'
-import Dashboard from './Dashboard'
-import Settings from './Settings'
+import Login from './Login';
+import fire from './Config/Firebase';
+import Register from './Register';
+import Dashboard from './Dashboard';
+import Settings from './Settings';
 
 class App extends Component {
 	constructor(props) {
@@ -14,23 +14,23 @@ class App extends Component {
 			isLogged: false,
 			isAuthorized: false
 		}
-		this.navigateToLogIn = this.navigateToLogIn.bind(this)
-		this.navigateToRegistration = this.navigateToRegistration.bind(this)
-		this.navigateToDashboard = this.navigateToDashboard.bind(this)
-		this.navigateToSettings = this.navigateToSettings.bind(this)
-		this.loading = this.loading.bind(this)
-		this.loadingStop = this.loadingStop.bind(this)
+		this.navigateToLogIn = this.navigateToLogIn.bind(this);
+		this.navigateToRegistration = this.navigateToRegistration.bind(this);
+		this.navigateToDashboard = this.navigateToDashboard.bind(this);
+		this.navigateToSettings = this.navigateToSettings.bind(this);
+		this.loading = this.loading.bind(this);
+		this.loadingStop = this.loadingStop.bind(this);
 	}
 
 	componentDidMount() {
-		this.authListener()
+		this.authListener();
 	}
 
 	authListener() {
-		this.loading()
-		let self = this
+		this.loading();
+		let self = this;
 		fire.auth().onAuthStateChanged((user) => {
-			this.loading()
+			this.loading();
 			if (user) {
 				fire.database().ref('/').once('value').then(function (snapshot) {
 					if (user.uid in snapshot.val()) {
@@ -38,21 +38,21 @@ class App extends Component {
 							mode: 'dashboard',
 							isLogged: true,
 							isAuthorized: true
-						})
+						});
 					} else {
 						self.setState({
 							mode: 'dashboard',
 							isLogged: true,
 							isAuthorized: false
-						})
+						});
 					}
-					self.loadingStop()
+					self.loadingStop();
 				});
 			} else {
 				this.setState({
 					mode: 'login'
-				})
-				self.loadingStop()
+				});
+				self.loadingStop();
 			}
 		})
 	}
@@ -60,49 +60,47 @@ class App extends Component {
 	navigateToLogIn() {
 		this.setState({
 			mode: 'login'
-		})
+		});
 	}
 
 	navigateToRegistration() {
 		this.setState({
 			mode: 'registration'
-		})
+		});
 	}
 
 	navigateToDashboard() {
 		this.setState({
 			mode: 'dashboard'
-		})
+		});
 	}
 
 	navigateToSettings() {
 		this.setState({
 			mode: 'settings'
-		})
+		});
 	}
 
 	loading() {
-		console.log('loading')
 		let loaderNode = document.getElementsByClassName('loader')[0];
 		if (!loaderNode) {
-			let main = document.getElementById('main')
-			main.classList.add('shaded')
-			loaderNode = document.createElement('div')
-			loaderNode.innerHTML = 'Loading...'
-			loaderNode.className = 'loader'
-			document.body.appendChild(loaderNode)
+			let main = document.getElementById('main');
+			main.classList.add('shaded');
+			loaderNode = document.createElement('div');
+			loaderNode.innerHTML = 'Loading...';
+			loaderNode.className = 'loader';
+			document.body.appendChild(loaderNode);
 		}
 
 	}
 
 	loadingStop() {
-		console.log('loading stop')
 		let loaderNode = document.getElementsByClassName('loader')[0];
 		if (loaderNode) {
-			let main = document.getElementById('main')
-			main.classList.remove('shaded')
+			let main = document.getElementById('main');
+			main.classList.remove('shaded');
 			let loaderNode = document.getElementsByClassName('loader')[0];
-			document.body.removeChild(loaderNode)
+			document.body.removeChild(loaderNode);
 		}
 	}
 
@@ -116,8 +114,7 @@ class App extends Component {
 							loading={this.loading}
 							loadingStop={this.loadingStop} />
 					</div>
-				)
-
+				);
 			case 'registration':
 				return (
 					<div id="main">
@@ -126,7 +123,7 @@ class App extends Component {
 							loading={this.loading}
 							loadingStop={this.loadingStop} />
 					</div>
-				)
+				);
 			case 'dashboard':
 				return (
 					<div id="main">
@@ -136,7 +133,7 @@ class App extends Component {
 							loading={this.loading}
 							loadingStop={this.loadingStop} />
 					</div>
-				)
+				);
 			case 'settings':
 				return (
 					<div id="main">
@@ -145,7 +142,7 @@ class App extends Component {
 							loading={this.loading}
 							loadingStop={this.loadingStop} />
 					</div>
-				)
+				);
 			default:
 				return (
 					<div id="main">
@@ -154,9 +151,9 @@ class App extends Component {
 							loading={this.loading}
 							loadingStop={this.loadingStop} />
 					</div>
-				)
+				);
 		}
 	}
 }
 
-export default App
+export default App;
