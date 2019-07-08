@@ -19,21 +19,21 @@ class Control extends Component {
     }
 
     up(event) {
-        console.log(event.target.parentNode.parentNode.id, ' is going up!');
+        console.log(event.target.parentNode.parentNode.id, ' is emmiting up!');
         if (this.props.socket) {
             this.props.socket.emit('up');
         }
     }
 
     down(event) {
-        console.log(event.target.parentNode.parentNode.id, ' is going down!');
+        console.log(event.target.parentNode.parentNode.id, ' is emmiting down!');
         if (this.props.socket) {
             this.props.socket.emit('down');
         }
     }
 
     stop(event) {
-        console.log(event.target.parentNode.parentNode.id, ' stopped!');
+        console.log(event.target.parentNode.parentNode.id, 'emmiting stopped!');
         if (this.props.socket) {
             this.props.socket.emit('stop');
         }
