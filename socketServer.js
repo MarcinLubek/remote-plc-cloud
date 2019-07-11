@@ -8,8 +8,8 @@ let actuatorData;
 
 ioLocal.on("connection", client => {
   console.log("local connected");
-  client.on("actuatorData", faza => {
-    console.log(faza);
+  client.on("actuatorData", () => {
+    console.log("faza");
   });
   client.on("disconnect", () => {
     console.log("local disconnected");
