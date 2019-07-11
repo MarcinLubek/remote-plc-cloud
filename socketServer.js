@@ -3,16 +3,15 @@
 //
 
 let ioLocal = require("socket.io")();
-let isLocalConnected = false;
 
 let actuatorData;
 
 ioLocal.on("connection", client => {
-  console.log(client);
   console.log("local connected");
-  isLocalConnected = true;
+  client.on("actuatorData", faza => {
+    console.log(faza);
+  });
   client.on("disconnect", () => {
-    isLocalConnected = false;
     console.log("local disconnected");
   });
   // client.on('up', () => {
@@ -57,7 +56,6 @@ ioCloud.on("connection", client => {
     console.log("cloud emits stop!");
   });
   client.on("disconnect", () => {
-    isLocalConnected = false;
     console.log("cloud disconnected");
   });
 });
