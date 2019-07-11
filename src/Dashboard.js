@@ -20,7 +20,12 @@ class Dashboard extends Component {
 
     connect() {
         this.props.loading();
-        let socket = openSocket('http://vps699582.ovh.net:3002');
+        let socket = openSocket('http://vps699582.ovh.net:3003');
+        socket.io.on('connect_error', function (err) {
+            // handle server error here
+            console.log('Error connecting to server');
+        });
+
         this.setState({
             connected: true,
             socket: socket
