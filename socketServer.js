@@ -2,10 +2,13 @@
 // Local
 //
 
-var ioLocal = require("socket.io")();
-var isLocalConnected = false;
+let ioLocal = require("socket.io")();
+let isLocalConnected = false;
+
+let actuatorData;
 
 ioLocal.on("connection", client => {
+  console.log(client);
   console.log("local connected");
   isLocalConnected = true;
   client.on("disconnect", () => {
@@ -37,7 +40,7 @@ console.log("local listening on port", portLocal);
 // Cloud
 //
 
-var ioCloud = require("socket.io")();
+let ioCloud = require("socket.io")();
 
 ioCloud.on("connection", client => {
   console.log("cloud connected");
