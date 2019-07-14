@@ -10,6 +10,7 @@ localClient.on("connect", client => {
 	console.log("local connected");
 	client.on("data", data => {
 		serverData = data;
+		client.emit("data", serverData);
 	});
 });
 
