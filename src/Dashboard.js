@@ -29,15 +29,11 @@ class Dashboard extends Component {
 			console.log("client 2 on data", data);
 		});
 
-		socket.io.on("connect_error", function (err) {
-			// handle server error here
-			console.log("Error connecting to server");
-		});
-
 		this.setState({
 			connected: true,
 			socket: socket
 		});
+
 		this.props.loadingStop();
 	}
 

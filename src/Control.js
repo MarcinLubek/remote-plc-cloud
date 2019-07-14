@@ -19,6 +19,7 @@ class Control extends Component {
 	}
 
 	up(event) {
+		debugger;
 		console.log(event.target.parentNode.parentNode.id, ' is emmiting up!');
 		if (this.props.socket) {
 			this.props.socket.emit('up');

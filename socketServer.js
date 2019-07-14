@@ -16,8 +16,11 @@ localClient.on("connect", client => {
 cloudClient.on("connect", client => {
 	console.log("cloud connected");
 	client.emit("data", serverData);
-});
 
+	client.on("up", () => {
+		console.log('socket server client up');
+	})
+});
 // //
 // // Local
 // //
