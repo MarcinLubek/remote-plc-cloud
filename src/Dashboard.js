@@ -37,25 +37,6 @@ class Dashboard extends Component {
 		this.props.loadingStop();
 	}
 
-	// connect() {
-	// this.props.loading();
-	// let socket = openSocket("http://vps699582.ovh.net:3002");
-	// socket.on("connect", () => {
-	// 	console.log("client 2 on connect");
-	// });
-	// socket.on("data", data => {
-	// 	console.log("socket on data");
-	// 	this.setState({
-	// 		actuatorData: data
-	// 	});
-	// });
-	// this.setState({
-	// 	connected: true,
-	// 	socket: socket
-	// });
-	// this.props.loadingStop();
-	// }
-
 	disconnect() {
 		this.props.loading();
 		this.setState({
