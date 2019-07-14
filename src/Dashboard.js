@@ -11,7 +11,8 @@ class Dashboard extends Component {
 		super(props);
 		this.state = {
 			connected: false,
-			socket: null
+			socket: null,
+			actuatorData: [10, 20, 30, 40, 50, 60, 70, 80]
 		};
 		this.connect = this.connect.bind(this);
 		this.disconnect = this.disconnect.bind(this);
@@ -26,7 +27,9 @@ class Dashboard extends Component {
 		});
 
 		socket.on("data", data => {
-			console.log("client 2 on data", data);
+			this.setState({
+				actuatorData: data
+			});
 		});
 
 		this.setState({
@@ -59,12 +62,19 @@ class Dashboard extends Component {
 							/>
 							<div id="menuContainerId" className="menuContainer">
 								<Menu
-									navigateToSettings={this.props.navigateToSettings}
-									navigateToDashboard={this.props.navigateToDashboard}
+									navigateToSettings={
+										this.props.navigateToSettings
+									}
+									navigateToDashboard={
+										this.props.navigateToDashboard
+									}
 								/>
 							</div>
 						</div>
-						<Control socket={this.state.socket} />
+						<Control
+							socket={this.state.socket}
+							actuatorData={this.state.actuatorData}
+						/>
 					</div>
 				);
 			} else {
@@ -78,13 +88,20 @@ class Dashboard extends Component {
 							/>
 							<div id="menuContainerId" className="menuContainer">
 								<Menu
-									navigateToSettings={this.props.navigateToSettings}
-									navigateToDashboard={this.props.navigateToDashboard}
+									navigateToSettings={
+										this.props.navigateToSettings
+									}
+									navigateToDashboard={
+										this.props.navigateToDashboard
+									}
 								/>
 							</div>
 						</div>
 						<div className="shaded">
-							<Control socket={this.state.socket} />
+							<Control
+								socket={this.state.socket}
+								actuatorData={this.state.actuatorData}
+							/>
 						</div>
 					</div>
 				);
@@ -95,8 +112,12 @@ class Dashboard extends Component {
 					<div className="bufferContainer">
 						<div id="menuContainerId" className="menuContainer">
 							<Menu
-								navigateToSettings={this.props.navigateToSettings}
-								navigateToDashboard={this.props.navigateToDashboard}
+								navigateToSettings={
+									this.props.navigateToSettings
+								}
+								navigateToDashboard={
+									this.props.navigateToDashboard
+								}
 							/>
 						</div>
 					</div>

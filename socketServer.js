@@ -17,9 +17,18 @@ cloudClient.on("connect", client => {
 	console.log("cloud connected");
 	client.emit("data", serverData);
 
-	client.on("up", () => {
-		console.log('socket server client up');
-	})
+	client.on("up", actuatorId => {
+		localClient.emit("up", actuatorId);
+		console.log("cloudClient emit up, actuator id:", actuatorId);
+	});
+	client.on("down", actuatorId => {
+		localClient.emit("down", actuatorId);
+		console.log("cloudClient emit up, actuator id:", actuatorId);
+	});
+	client.on("stop", () => {
+		localClient.emit("stop");
+		console.log("cloudClient emit stop);
+	});
 });
 // //
 // // Local

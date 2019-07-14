@@ -1,44 +1,45 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    position: relative;
+.container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
-    .bufferContainer{
-        height: 29px;
-        margin-bottom: 0.5em;
-    }
-    .connectionStatus{
-        align-items: center;
-        display:flex;
-        height: 29px;
-        position: absolute;
-        z-index: 1000;
-    }
-    .menuContainer{
-        width: 100%;
-        position: absolute;
-    }
+.bufferContainer {
+	height: 29px;
+	margin-bottom: 0.5em;
+}
+.connectionStatus {
+	align-items: center;
+	display: flex;
+	height: 29px;
+	position: absolute;
+	z-index: 1000;
+}
+.menuContainer {
+	width: 100%;
+	position: absolute;
+}
 
-.actuatorSection{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.actuatorSection {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
-    .actuator{
-        border: 1px solid #ddd;
-        display: flex;
-        margin: 5px 0;
-    }
-        .actuatorPosition{
-            align-self: center;
-            width: 50%;
-        }
-        .actuatorControl{
-            width: 50%;
-        }
-        .actuatorControl i{
-            width: 100%;
-        }
-        .actuatorControl i:last-child{
-            vertical-align: bottom;
-        }
+.actuator {
+	border: 1px solid #ddd;
+	display: flex;
+	margin: 5px 0;
+	width: 45%;
+}
+.actuatorPosition {
+	align-self: center;
+	width: 50%;
+}
+.actuatorControl {
+	width: 50%;
+}
+.actuatorControl i {
+	width: 100%;
+}
+.actuatorControl i:last-child {
+	vertical-align: bottom;
+}
