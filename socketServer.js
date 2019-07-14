@@ -27,7 +27,7 @@ cloudClient.on("connect", client => {
 	});
 	client.on("stop", () => {
 		localClient.emit("stop");
-		console.log("cloudClient emit stop);
+		console.log("cloudClient emit stop");
 	});
 });
 // //
