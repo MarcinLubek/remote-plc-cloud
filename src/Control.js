@@ -49,6 +49,7 @@ class Control extends Component {
 							<i
 								className="material-icons"
 								onMouseDown={this.down}
+								onMouseUp={this.stop}
 							>
 								expand_more
 							</i>
@@ -59,10 +60,18 @@ class Control extends Component {
 							{this.props.actuatorData[1]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -75,10 +84,18 @@ class Control extends Component {
 							{this.props.actuatorData[2]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -88,10 +105,18 @@ class Control extends Component {
 							{this.props.actuatorData[3]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -104,10 +129,18 @@ class Control extends Component {
 							{this.props.actuatorData[4]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -117,10 +150,18 @@ class Control extends Component {
 							{this.props.actuatorData[5]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -133,10 +174,18 @@ class Control extends Component {
 							{this.props.actuatorData[6]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>
@@ -146,10 +195,18 @@ class Control extends Component {
 							{this.props.actuatorData[7]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons" onClick={this.up}>
+							<i
+								className="material-icons"
+								onMouseDown={this.up}
+								onMouseUp={this.stop}
+							>
 								expand_less
 							</i>
-							<i className="material-icons" onClick={this.down}>
+							<i
+								className="material-icons"
+								onMouseDown={this.down}
+								onMouseUp={this.stop}
+							>
 								expand_more
 							</i>
 						</div>

@@ -23,7 +23,7 @@ cloudClient.on("connect", client => {
 	});
 	client.on("down", actuatorId => {
 		localClient.emit("down", actuatorId);
-		console.log("cloudClient emit up, actuator id:", actuatorId);
+		console.log("cloudClient emit down, actuator id:", actuatorId);
 	});
 	client.on("stop", () => {
 		localClient.emit("stop");
