@@ -8,6 +8,22 @@ class Control extends Component {
 		this.stop = this.stop.bind(this);
 	}
 
+	componentDidMount() {
+		let up = document.getElementsByClassName("actuatorIconUp");
+		let down = document.getElementsByClassName("actuatorIconDown");
+		for (let i = 0; i < up.length; i++) {
+			up[i].addEventListener("mousedown", this.up);
+			down[i].addEventListener("mousedown", this.down);
+			up[i].addEventListener("mouseup", this.stop);
+			down[i].addEventListener("mouseup", this.stop);
+
+			up[i].addEventListener("touchstart", this.up);
+			down[i].addEventListener("touchstart", this.down);
+			up[i].addEventListener("touchend", this.stop);
+			down[i].addEventListener("touchend", this.stop);
+		}
+	}
+
 	up(event) {
 		event.preventDefault();
 		let actuatorId = event.target.parentNode.parentNode.id;
@@ -31,16 +47,11 @@ class Control extends Component {
 		}
 	}
 
-	faza() {
-		document.getElementById("baza").innerHTML += "XD";
-	}
-
 	render() {
 		return (
 			<div>
-				<div onTouchStart={this.faza} onTouchEnd={this.faza}>
-					Faza
-				</div>
+				<div className="faza">Faza</div>
+				<div className="faza">Baza</div>
 				<div id="baza" />
 				<div>Head</div>
 				<div className="actuatorSection">
@@ -49,18 +60,10 @@ class Control extends Component {
 							{this.props.actuatorData[0]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -70,18 +73,10 @@ class Control extends Component {
 							{this.props.actuatorData[1]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -94,18 +89,10 @@ class Control extends Component {
 							{this.props.actuatorData[2]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -115,18 +102,10 @@ class Control extends Component {
 							{this.props.actuatorData[3]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -139,18 +118,10 @@ class Control extends Component {
 							{this.props.actuatorData[4]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -160,18 +131,10 @@ class Control extends Component {
 							{this.props.actuatorData[5]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -184,18 +147,10 @@ class Control extends Component {
 							{this.props.actuatorData[6]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
@@ -205,18 +160,10 @@ class Control extends Component {
 							{this.props.actuatorData[7]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons"
-								onMouseDown={this.up}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
-							<i
-								className="material-icons"
-								onMouseDown={this.down}
-								onMouseUp={this.stop}
-							>
+							<i className="material-icons actuatorIconDown">
 								expand_more
 							</i>
 						</div>
