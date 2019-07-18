@@ -58,7 +58,11 @@ class Control extends Component {
 							{this.props.actuatorData[0]}
 						</div>
 						<div className="actuatorControl">
-							<i className="material-icons actuatorIconUp">
+							<i
+								className="material-icons actuatorIconUp"
+								onTouchStart={this.up}
+								onTouchEnd={this.stop}
+							>
 								expand_less
 							</i>
 							<i className="material-icons actuatorIconDown">
