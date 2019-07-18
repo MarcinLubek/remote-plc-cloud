@@ -9,6 +9,7 @@ class Control extends Component {
 	}
 
 	componentDidMount() {
+		console.log("faza");
 		let up = document.getElementsByClassName("actuatorIconUp");
 		let down = document.getElementsByClassName("actuatorIconDown");
 		for (let i = 0; i < up.length; i++) {
@@ -50,9 +51,6 @@ class Control extends Component {
 	render() {
 		return (
 			<div>
-				<div className="faza">Faza</div>
-				<div className="faza">Baza</div>
-				<div id="baza" />
 				<div>Head</div>
 				<div className="actuatorSection">
 					<div id="1" className="actuator">
