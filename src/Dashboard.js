@@ -12,7 +12,7 @@ class Dashboard extends Component {
 		this.state = {
 			connected: false,
 			socket: null,
-			actuatorData: [10, 20, 30, 40, 50, 60, 70, 80]
+			actuatorData: []
 		};
 		this.connect = this.connect.bind(this);
 		this.disconnect = this.disconnect.bind(this);
