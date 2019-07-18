@@ -49,7 +49,7 @@ class Control extends Component {
 						<div className="actuatorControl">
 							<i
 								className="material-icons"
-								onMouseDown={this.up}
+								onClick={this.up}
 								onMouseUp={this.stop}
 							>
 								expand_less
