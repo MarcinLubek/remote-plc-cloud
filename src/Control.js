@@ -29,9 +29,15 @@ class Control extends Component {
 		}
 	}
 
+	faza() {
+		document.getElementById("baza").innerHTML += "XD";
+	}
+
 	render() {
 		return (
 			<div>
+				<div onClick={this.faza}>Faza</div>
+				<div id="baza" />
 				<div>Head</div>
 				<div className="actuatorSection">
 					<div id="1" className="actuator">

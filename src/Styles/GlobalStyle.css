@@ -1,83 +1,84 @@
-*, *::before, *::after{
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-html{
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-    user-select: none;  
-    font-size: 62.5%;
+html {
+	-webkit-user-select: none; /* Chrome all / Safari all */
+	-moz-user-select: none; /* Firefox all */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none;
+	font-size: 62.5%;
 }
 
-body{
-    background-color: #333;
-    color: white;
-    font-family: "Avenir Next", "Avenir", sans-serif;
-    font-size: 2rem;
-    margin: 0;   
+body {
+	background-color: #333;
+	color: white;
+	font-family: "Avenir Next", "Avenir", sans-serif;
+	font-size: 2rem;
+	margin: 0;
 }
 
 .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 48px !important; /* Preferred icon size */
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
-    font-feature-settings: 'liga';
-  }
-  
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 48px !important; /* Preferred icon size */
+	display: inline-block;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
 
-button{
-    background-color: #ddd;
-    border: none;
-    border-radius: 0.5em;
-    color: #111;
-    font-size: 2rem;
-    margin: 0.5em 0;
-    padding: 0.5em;
-}
-    button:focus{
-        outline: 1px solid white;
-        outline-offset: 1px;
-    }
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
 
-input{
-    background-color: inherit;
-    border: none;
-    border-bottom: 1px solid white;
-    color: white;
-    font-size: 1.6rem;
-    margin: 0.5em;
-    padding: 0.5em;
+	/* Support for IE. */
+	font-feature-settings: "liga";
 }
 
-    input::placeholder{
-        color:white
-    }
-    input:focus{
-        outline: 1px solid white;
-        outline-offset: 1px;
-    }
+button {
+	background-color: #ddd;
+	border: none;
+	border-radius: 0.5em;
+	color: #111;
+	font-size: 2rem;
+	margin: 0.5em 0;
+	padding: 0.5em;
+}
+button:focus {
+	outline: 1px solid white;
+	outline-offset: 1px;
+}
 
-#main{
-    margin: 1em auto;
-    width: 320px;
-    padding: 1em;
-    text-align: center;
-    border: 1px solid white;
+input {
+	background-color: inherit;
+	border: none;
+	border-bottom: 1px solid white;
+	color: white;
+	font-size: 1.6rem;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+input::placeholder {
+	color: white;
+}
+input:focus {
+	outline: 1px solid white;
+	outline-offset: 1px;
+}
+
+#main {
+	margin: 1em auto;
+	width: 320px;
+	padding: 1em;
+	text-align: center;
+	/* border: 1px solid white; */
 }
