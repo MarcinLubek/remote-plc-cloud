@@ -9,6 +9,7 @@ class Control extends Component {
 	}
 
 	up(event) {
+		event.preventDefault();
 		let actuatorId = event.target.parentNode.parentNode.id;
 		if (this.props.socket) {
 			this.props.socket.emit("up", actuatorId);
@@ -16,6 +17,7 @@ class Control extends Component {
 	}
 
 	down(event) {
+		event.preventDefault();
 		let actuatorId = event.target.parentNode.parentNode.id;
 		if (this.props.socket) {
 			this.props.socket.emit("down", actuatorId);
