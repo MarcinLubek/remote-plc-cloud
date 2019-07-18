@@ -3,13 +3,17 @@ import React, { Component } from "react";
 class Control extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			actuatorInMovement: false
+		};
 		this.up = this.up.bind(this);
 		this.down = this.down.bind(this);
 		this.stop = this.stop.bind(this);
+		this.emergencySwitch = this.emergencySwitch.bind(this);
 	}
 
 	componentDidMount() {
-		console.log("faza");
+		window.addEventListener("mouseup", this.emergencySwitch);
 		let up = document.getElementsByClassName("actuatorIconUp");
 		let down = document.getElementsByClassName("actuatorIconDown");
 		for (let i = 0; i < up.length; i++) {
@@ -25,26 +29,44 @@ class Control extends Component {
 		}
 	}
 
+	emergencySwitch() {
+		if (this.state.actuatorInMovement) {
+			this.stop();
+		}
+	}
+
 	up(event) {
-		event.preventDefault();
-		let actuatorId = event.target.parentNode.parentNode.id;
-		if (this.props.socket) {
-			this.props.socket.emit("up", actuatorId);
+		if (!this.state.actuatorInMovement) {
+			this.setState({
+				actuatorInMovement: true
+			});
+			event.preventDefault();
+			let actuatorId = event.target.parentNode.parentNode.id;
+			if (this.props.socket) {
+				this.props.socket.emit("up", actuatorId);
+			}
 		}
 	}
 
 	down(event) {
-		event.preventDefault();
-		let actuatorId = event.target.parentNode.parentNode.id;
-		if (this.props.socket) {
-			this.props.socket.emit("down", actuatorId);
+		if (!this.state.actuatorInMovement) {
+			this.setState({
+				actuatorInMovement: true
+			});
+			event.preventDefault();
+			let actuatorId = event.target.parentNode.parentNode.id;
+			if (this.props.socket) {
+				this.props.socket.emit("down", actuatorId);
+			}
 		}
 	}
 
-	stop(event) {
-		let actuatorId = event.target.parentNode.parentNode.id;
+	stop() {
 		if (this.props.socket) {
-			this.props.socket.emit("stop", actuatorId);
+			this.props.socket.emit("stop");
+			this.setState({
+				actuatorInMovement: false
+			});
 		}
 	}
 
@@ -58,11 +80,7 @@ class Control extends Component {
 							{this.props.actuatorData[0]}
 						</div>
 						<div className="actuatorControl">
-							<i
-								className="material-icons actuatorIconUp"
-								onTouchStart={this.up}
-								onTouchEnd={this.stop}
-							>
+							<i className="material-icons actuatorIconUp">
 								expand_less
 							</i>
 							<i className="material-icons actuatorIconDown">

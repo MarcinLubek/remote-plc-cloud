@@ -25,7 +25,6 @@ class Dashboard extends Component {
 			console.log("client 2 on connect");
 		});
 		socket.on("data", data => {
-			console.log("socket on data");
 			this.setState({
 				actuatorData: data
 			});
