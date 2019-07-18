@@ -38,7 +38,9 @@ class Control extends Component {
 	render() {
 		return (
 			<div>
-				<div onClick={this.faza}>Faza</div>
+				<div onTouchStart={this.faza} onTouchEnd={this.faza}>
+					Faza
+				</div>
 				<div id="baza" />
 				<div>Head</div>
 				<div className="actuatorSection">
@@ -49,7 +51,7 @@ class Control extends Component {
 						<div className="actuatorControl">
 							<i
 								className="material-icons"
-								onClick={this.up}
+								onMouseDown={this.up}
 								onMouseUp={this.stop}
 							>
 								expand_less
