@@ -1,5 +1,5 @@
 .shaded {
-	background-color: rgba(51, 51, 51, 0.2);
+	opacity: 0.2;
 	pointer-events: none;
 }
 

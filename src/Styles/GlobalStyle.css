@@ -76,7 +76,7 @@ input:focus {
 }
 
 #main {
-	margin: 1em auto;
+	margin: 0 auto;
 	width: 320px;
 	padding: 1em;
 	text-align: center;

@@ -17,6 +17,7 @@
 .menuContainer {
 	width: 100%;
 	position: absolute;
+	z-index: 999;
 }
 
 .actuatorSection {
