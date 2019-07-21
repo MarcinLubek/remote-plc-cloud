@@ -1,66 +1,68 @@
-.hidden{
-    display: none;
+.hidden {
+	display: none;
 }
 
-#navIcon, #menu{
-    float: right
+#navIcon,
+#menu {
+	float: right;
 }
-    #menu:after{
-        clear:both;
-    }
+#menu:after {
+	clear: both;
+}
 
 .hamburgerIcon {
-    width: 40px;
+	width: 40px;
 }
 .closeIcon {
-    width: 40px;
+	width: 40px;
 }
-    .hamburgerIcon:after, 
-    .hamburgerIcon:before, 
-    .hamburgerIcon div,
-    .closeIcon:after, 
-    .closeIcon:before, 
-    .closeIcon div {
-        background-color: #fff;
-        border-radius: 3px;
-        content: '';
-        display: block;
-        height: 5px;
-        margin-bottom: 7px;
-        transition: all .2s ease-in-out;
-    }
-        .hamburgerIcon:after{
-            margin-bottom: 0;
-        }
-
-    .closeIcon:before {
-        transform: translateY(12px) rotate(135deg);
-    }
-
-    .closeIcon:after {
-        transform: translateY(-12px) rotate(-135deg);
-    }
-
-    .closeIcon div {
-        transform: scale(0);
-    }
-
-#menu{
-    background-color: #ddd;
-    color: #111;
-    width: 100%;
+.hamburgerIcon:after,
+.hamburgerIcon:before,
+.hamburgerIcon div,
+.closeIcon:after,
+.closeIcon:before,
+.closeIcon div {
+	background-color: #fff;
+	border-radius: 3px;
+	content: "";
+	display: block;
+	height: 5px;
+	margin-bottom: 7px;
+	transition: all 0.2s ease-in-out;
 }
-    #menu ul{
-        border: 1px solid #333;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-        #menu ul li{
-            cursor: pointer;
-            margin: 0.5em;
-        }
-            #menu ul li:hover{
-                color: #ddd;
-                background-color: #333;
-            }
+.hamburgerIcon:after {
+	margin-bottom: 0;
+}
+
+.closeIcon:before {
+	transform: translateY(12px) rotate(135deg);
+}
+
+.closeIcon:after {
+	transform: translateY(-12px) rotate(-135deg);
+}
+
+.closeIcon div {
+	transform: scale(0);
+}
+
+#menu {
+	background-color: #ddd;
+	color: #111;
+	width: 100%;
+	opacity: 1 !important;
+}
+#menu ul {
+	border: 1px solid #333;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#menu ul li {
+	cursor: pointer;
+	margin: 0.5em;
+}
+#menu ul li:hover {
+	color: #ddd;
+	background-color: #333;
+}
