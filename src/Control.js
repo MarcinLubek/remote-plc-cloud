@@ -61,9 +61,10 @@ class Control extends Component {
 		}
 	}
 
-	stop() {
+	stop(event) {
+		let actuatorId = event.target.parentNode.parentNode.id;
 		if (this.props.socket) {
-			this.props.socket.emit("stop");
+			this.props.socket.emit("stop", actuatorId);
 			this.setState({
 				actuatorInMovement: false
 			});

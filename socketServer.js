@@ -22,7 +22,7 @@ cloudClient.on("connect", client => {
 	client.on("down", actuatorId => {
 		localClient.emit("down", actuatorId);
 	});
-	client.on("stop", () => {
-		localClient.emit("stop");
+	client.on("stop", actuatorId => {
+		localClient.emit("stop", actuatorId);
 	});
 });
