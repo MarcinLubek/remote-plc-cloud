@@ -7,6 +7,7 @@ cloudClient.listen(3002);
 let serverData;
 
 localClient.on("connect", client => {
+	console.log("local connected");
 	client.on("data", data => {
 		serverData = data;
 		cloudClient.emit("data", serverData);
@@ -14,6 +15,7 @@ localClient.on("connect", client => {
 });
 
 cloudClient.on("connect", client => {
+	console.log("cloud connected");
 	client.emit("data", serverData);
 
 	client.on("up", actuatorId => {
