@@ -21,7 +21,6 @@ class Control extends Component {
 			down[i].addEventListener("mousedown", this.down);
 			up[i].addEventListener("mouseup", this.stop);
 			down[i].addEventListener("mouseup", this.stop);
-
 			up[i].addEventListener("touchstart", this.up);
 			down[i].addEventListener("touchstart", this.down);
 			up[i].addEventListener("touchend", this.stop);
@@ -78,7 +77,8 @@ class Control extends Component {
 				<div className="actuatorSection">
 					<div id="1" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[0]}
+							{this.props.actuatorData[0] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -91,7 +91,8 @@ class Control extends Component {
 					</div>
 					<div id="2" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[1]}
+							{this.props.actuatorData[1] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -107,7 +108,8 @@ class Control extends Component {
 				<div className="actuatorSection">
 					<div id="3" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[2]}
+							{this.props.actuatorData[2] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -120,7 +122,8 @@ class Control extends Component {
 					</div>
 					<div id="4" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[3]}
+							{this.props.actuatorData[3] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -136,7 +139,8 @@ class Control extends Component {
 				<div className="actuatorSection">
 					<div id="5" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[4]}
+							{this.props.actuatorData[4] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -149,7 +153,8 @@ class Control extends Component {
 					</div>
 					<div id="6" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[5]}
+							{this.props.actuatorData[5] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -165,7 +170,8 @@ class Control extends Component {
 				<div className="actuatorSection">
 					<div id="7" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[6]}
+							{this.props.actuatorData[6] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
@@ -178,7 +184,8 @@ class Control extends Component {
 					</div>
 					<div id="8" className="actuator">
 						<div className="actuatorPosition">
-							{this.props.actuatorData[7]}
+							{this.props.actuatorData[7] || 0}
+							<span>%</span>
 						</div>
 						<div className="actuatorControl">
 							<i className="material-icons actuatorIconUp">
