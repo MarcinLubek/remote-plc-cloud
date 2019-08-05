@@ -135,7 +135,7 @@ class Control extends Component {
 						</div>
 					</div>
 				</div>
-				<div>Hips</div>
+				<div>Pelvis</div>
 				<div className="actuatorSection">
 					<div id="5" className="actuator">
 						<div className="actuatorPosition">
@@ -166,7 +166,7 @@ class Control extends Component {
 						</div>
 					</div>
 				</div>
-				<div>Thighs</div>
+				<div>Calves</div>
 				<div className="actuatorSection">
 					<div id="7" className="actuator">
 						<div className="actuatorPosition">
