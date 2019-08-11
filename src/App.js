@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Login from './Login';
-import fire from './Config/Firebase';
-import Register from './Register';
-import Dashboard from './Dashboard';
-import Settings from './Settings';
+import Login from "./Login";
+import fire from "./Config/Firebase";
+import Register from "./Register";
+import Dashboard from "./Dashboard";
+import Settings from "./Settings";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mode: 'login',
+			mode: "login",
 			isLogged: false,
 			isAuthorized: false
-		}
+		};
 		this.navigateToLogIn = this.navigateToLogIn.bind(this);
 		this.navigateToRegistration = this.navigateToRegistration.bind(this);
 		this.navigateToDashboard = this.navigateToDashboard.bind(this);
@@ -29,118 +29,124 @@ class App extends Component {
 	authListener() {
 		this.loading();
 		let self = this;
-		fire.auth().onAuthStateChanged((user) => {
+		fire.auth().onAuthStateChanged(user => {
 			this.loading();
 			if (user) {
-				fire.database().ref('/').once('value').then(function (snapshot) {
-					if (user.uid in snapshot.val()) {
-						self.setState({
-							mode: 'dashboard',
-							isLogged: true,
-							isAuthorized: true
-						});
-					} else {
-						self.setState({
-							mode: 'dashboard',
-							isLogged: true,
-							isAuthorized: false
-						});
-					}
-					self.loadingStop();
-				});
+				fire.database()
+					.ref("/")
+					.once("value")
+					.then(function(snapshot) {
+						if (user.uid in snapshot.val()) {
+							self.setState({
+								mode: "dashboard",
+								isLogged: true,
+								isAuthorized: true
+							});
+						} else {
+							self.setState({
+								mode: "dashboard",
+								isLogged: true,
+								isAuthorized: false
+							});
+						}
+						self.loadingStop();
+					});
 			} else {
 				this.setState({
-					mode: 'login'
+					mode: "login"
 				});
 				self.loadingStop();
 			}
-		})
+		});
 	}
 
 	navigateToLogIn() {
 		this.setState({
-			mode: 'login'
+			mode: "login"
 		});
 	}
 
 	navigateToRegistration() {
 		this.setState({
-			mode: 'registration'
+			mode: "registration"
 		});
 	}
 
 	navigateToDashboard() {
 		this.setState({
-			mode: 'dashboard'
+			mode: "dashboard"
 		});
 	}
 
 	navigateToSettings() {
 		this.setState({
-			mode: 'settings'
+			mode: "settings"
 		});
 	}
 
 	loading() {
-		let loaderNode = document.getElementsByClassName('loader')[0];
+		let loaderNode = document.getElementsByClassName("loader")[0];
 		if (!loaderNode) {
-			let main = document.getElementById('main');
-			main.classList.add('shaded');
-			loaderNode = document.createElement('div');
-			loaderNode.innerHTML = 'Loading...';
-			loaderNode.className = 'loader';
+			let main = document.getElementById("main");
+			main.classList.add("shaded");
+			loaderNode = document.createElement("div");
+			loaderNode.innerHTML = "Ładowanie...";
+			loaderNode.className = "loader";
 			document.body.appendChild(loaderNode);
 		}
-
 	}
 
 	loadingStop() {
-		let loaderNode = document.getElementsByClassName('loader')[0];
+		let loaderNode = document.getElementsByClassName("loader")[0];
 		if (loaderNode) {
-			let main = document.getElementById('main');
-			main.classList.remove('shaded');
-			let loaderNode = document.getElementsByClassName('loader')[0];
+			let main = document.getElementById("main");
+			main.classList.remove("shaded");
+			let loaderNode = document.getElementsByClassName("loader")[0];
 			document.body.removeChild(loaderNode);
 		}
 	}
 
 	render() {
 		switch (this.state.mode) {
-			case 'login':
+			case "login":
 				return (
 					<div id="main">
 						<Login
 							navigateToRegistration={this.navigateToRegistration}
 							loading={this.loading}
-							loadingStop={this.loadingStop} />
+							loadingStop={this.loadingStop}
+						/>
 					</div>
 				);
-			case 'registration':
+			case "registration":
 				return (
 					<div id="main">
 						<Register
 							navigateToLogIn={this.navigateToLogIn}
 							loading={this.loading}
-							loadingStop={this.loadingStop} />
+							loadingStop={this.loadingStop}
+						/>
 					</div>
 				);
-			case 'dashboard':
+			case "dashboard":
 				return (
 					<div id="main">
 						<Dashboard
 							isAuthorized={this.state.isAuthorized}
 							navigateToSettings={this.navigateToSettings}
 							loading={this.loading}
-							loadingStop={this.loadingStop} />
+							loadingStop={this.loadingStop}
+						/>
 					</div>
 				);
-			case 'settings':
+			case "settings":
 				return (
 					<div id="main">
 						<Settings
 							navigateToDashboard={this.navigateToDashboard}
 							loading={this.loading}
-							loadingStop={this.loadingStop} />
+							loadingStop={this.loadingStop}
+						/>
 					</div>
 				);
 			default:
@@ -149,7 +155,8 @@ class App extends Component {
 						<Login
 							navigateToRegistration={this.navigateToRegistration}
 							loading={this.loading}
-							loadingStop={this.loadingStop} />
+							loadingStop={this.loadingStop}
+						/>
 					</div>
 				);
 		}

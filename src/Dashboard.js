@@ -117,7 +117,7 @@ class Dashboard extends Component {
 							/>
 						</div>
 					</div>
-					<div>You are unauthorized user</div>
+					<div>Jesteś nieautoryzowanym użytkownikiem</div>
 				</div>
 			);
 		}

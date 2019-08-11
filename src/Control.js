@@ -73,7 +73,7 @@ class Control extends Component {
 	render() {
 		return (
 			<div>
-				<div>Head</div>
+				<div>Głowa</div>
 				<div className="actuatorSection">
 					<div id="1" className="actuator">
 						<div className="actuatorPosition">
@@ -104,7 +104,7 @@ class Control extends Component {
 						</div>
 					</div>
 				</div>
-				<div>Shoulders</div>
+				<div>Barki</div>
 				<div className="actuatorSection">
 					<div id="3" className="actuator">
 						<div className="actuatorPosition">
@@ -135,7 +135,7 @@ class Control extends Component {
 						</div>
 					</div>
 				</div>
-				<div>Pelvis</div>
+				<div>Miednica</div>
 				<div className="actuatorSection">
 					<div id="5" className="actuator">
 						<div className="actuatorPosition">
@@ -166,7 +166,7 @@ class Control extends Component {
 						</div>
 					</div>
 				</div>
-				<div>Calves</div>
+				<div>Łydki</div>
 				<div className="actuatorSection">
 					<div id="7" className="actuator">
 						<div className="actuatorPosition">

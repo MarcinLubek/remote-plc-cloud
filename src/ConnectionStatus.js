@@ -13,14 +13,14 @@ function ConnectionStatus(props) {
 		return (
 			<div className="connectionStatus" onClick={toggleConnection}>
 				<div className="led green" />
-				<div>Connected</div>
+				<div>Połączono</div>
 			</div>
 		);
 	} else {
 		return (
 			<div className="connectionStatus" onClick={toggleConnection}>
 				<div className="led red" />
-				<div>Connect</div>
+				<div>Połącz</div>
 			</div>
 		);
 	}

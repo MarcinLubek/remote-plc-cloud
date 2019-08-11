@@ -17,13 +17,13 @@ class Register extends Component {
 	validateData() {
 		this.props.loadingStop();
 		if (!this.state.email) {
-			alert("Email field cannot be empty");
+			alert("Pole z adresem email nie może być puste");
 		} else if (!this.state.password) {
-			alert("Password field can not be empty");
+			alert("Pole z hasłem nie może być puste");
 		} else if (!this.state.retypedPassword) {
-			alert("Retyped password field can not be empty");
+			alert("Pole z powtórnie wpisanym hasłem nie może być puste");
 		} else if (this.state.password !== this.state.retypedPassword) {
-			alert("Passwords do not match");
+			alert("Hasła muszą być takie same");
 		} else {
 			return true;
 		}
@@ -71,21 +71,21 @@ class Register extends Component {
 					<input
 						name="password"
 						type="password"
-						placeholder="Password"
+						placeholder="Hasło"
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
 					<input
 						name="retypedPassword"
 						type="password"
-						placeholder="Retype Password"
+						placeholder="Powtórz hasło"
 						value={this.state.retypedPassword}
 						onChange={this.handleChange}
 					/>
-					<button onClick={this.registerUser}>Register</button>
+					<button onClick={this.registerUser}>Zarejestruj</button>
 				</form>
 				<button onClick={this.props.navigateToLogIn}>
-					Back to Log in page
+					Wróć do strony logowania
 				</button>
 			</div>
 		);
