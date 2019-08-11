@@ -32,3 +32,7 @@ cloudClient.on("connect", client => {
 cloudClient.on("disconnect", function() {
 	console.log("cloud disconnected");
 });
+
+localClient.on("disconnect", function() {
+	console.log("local disconnected");
+});
