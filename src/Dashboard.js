@@ -36,6 +36,11 @@ class Dashboard extends Component {
 
 		socket.on("connect", () => {
 			console.log("client 2 on connect");
+			console.log("before", socket);
+			setTimeout(() => {
+				socket.disconnect();
+				console.log("after", socket);
+			}, 4000);
 			this.setState({
 				connected: true,
 				socket: socket
@@ -75,6 +80,8 @@ class Dashboard extends Component {
 	// }
 
 	disconnect() {
+		let socket = this.state.socket;
+		// socket.disconnect();
 		this.props.loading();
 		this.setState({
 			connected: false,

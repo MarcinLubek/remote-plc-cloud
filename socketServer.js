@@ -12,6 +12,9 @@ localClient.on("connect", client => {
 		serverData = data;
 		cloudClient.emit("data", serverData);
 	});
+	client.on("disconnect", function() {
+		console.log("local disconnected");
+	});
 });
 
 cloudClient.on("connect", client => {
@@ -27,12 +30,7 @@ cloudClient.on("connect", client => {
 	client.on("stop", actuatorId => {
 		localClient.emit("stop", actuatorId);
 	});
-});
-
-cloudClient.on("disconnect", function() {
-	console.log("cloud disconnected");
-});
-
-localClient.on("disconnect", function() {
-	console.log("local disconnected");
+	client.on("disconnect", function() {
+		console.log("cloud disconnected");
+	});
 });
