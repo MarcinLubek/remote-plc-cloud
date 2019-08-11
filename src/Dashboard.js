@@ -16,25 +16,63 @@ class Dashboard extends Component {
 		};
 		this.connect = this.connect.bind(this);
 		this.disconnect = this.disconnect.bind(this);
+		this.faza = this.faza.bind(this);
 	}
 
 	connect() {
-		let socket = openSocket("http://vps699582.ovh.net:3002");
 		this.props.loading();
+
+		let uri = "http://vps699582.ovh.net:3002";
+		let socket = openSocket(uri);
+		this.setState({ socket: socket });
+
+		socket.on("connect_error", () => {
+			console.log("Connection error!");
+			socket.io._reconnection = false;
+			this.setState({
+				connected: false
+			});
+		});
+
 		socket.on("connect", () => {
 			console.log("client 2 on connect");
+			this.setState({
+				connected: true,
+				socket: socket
+			});
 		});
 		socket.on("data", data => {
+			console.log("client 2 on data");
 			this.setState({
 				actuatorData: data
 			});
 		});
-		this.setState({
-			connected: true,
-			socket: socket
-		});
+
 		this.props.loadingStop();
 	}
+	// connect() {
+	// 	let socket = openSocket("http://vps699582.ovh.net:3003");
+	// 	this.props.loading();
+	// 	socket.on("connect", () => {
+	// 		console.log("client 2 on connect");
+	// 	});
+	// 	socket.on("data", data => {
+	// 		console.log("client 2 on data");
+	// 		this.setState({
+	// 			actuatorData: data
+	// 		});
+	// 	});
+	// 	socket.on("error", function() {
+	// 		console.log("socket on error");
+	// 	});
+	// 	if (socket.connected) {
+	// 		this.setState({
+	// 			connected: true,
+	// 			socket: socket
+	// 		});
+	// 	}
+	// 	this.props.loadingStop();
+	// }
 
 	disconnect() {
 		this.props.loading();
@@ -45,11 +83,16 @@ class Dashboard extends Component {
 		this.props.loadingStop();
 	}
 
+	faza() {
+		console.log("faza", this.state);
+	}
+
 	render() {
 		if (this.props.isAuthorized) {
 			if (this.state.connected) {
 				return (
 					<div className="container">
+						<button onClick={this.faza}>faza</button>
 						<div className="bufferContainer">
 							<ConnectionStatus
 								connectionState={this.state.connected}
@@ -76,6 +119,7 @@ class Dashboard extends Component {
 			} else {
 				return (
 					<div className="container">
+						<button onClick={this.faza}>faza</button>
 						<div className="bufferContainer">
 							<ConnectionStatus
 								connectionState={this.state.connected}

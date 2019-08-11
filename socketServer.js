@@ -28,3 +28,7 @@ cloudClient.on("connect", client => {
 		localClient.emit("stop", actuatorId);
 	});
 });
+
+cloudClient.on("disconnect", function() {
+	console.log("cloud disconnected");
+});
